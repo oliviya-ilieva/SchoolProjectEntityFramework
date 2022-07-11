@@ -17,6 +17,8 @@ namespace SchoolProjectEntityFramework.EntityConfigurations
 
         public StudentConfiguration() {
 
+         
+
             ToTable("Students");
 
             Property(s => s.FirstName)

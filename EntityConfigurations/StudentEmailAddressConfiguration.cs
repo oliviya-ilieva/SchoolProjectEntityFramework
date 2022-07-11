@@ -16,6 +16,9 @@ namespace SchoolProjectEntityFramework.EntityConfigurations
             Property(s => s.EmailAddress)
                    .HasMaxLength(80);
 
+
+            
+
         }
     }
 }

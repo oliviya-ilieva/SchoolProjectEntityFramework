@@ -1,12 +1,14 @@
-﻿using System;
+﻿using SchoolProjectEntityFramework.AbstractValidator;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace SchoolProjectEntityFramework.Models
 {
-    public class Student
+    public class Student : IValidatableObject
     {
        
             public int Id { get; set; }
@@ -25,6 +27,11 @@ namespace SchoolProjectEntityFramework.Models
             public List<Grade> Grades { get; set; }
         public List<Subject> Subjects { get; set; }
 
-
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            var validator = new StudentValidation();
+            var result = validator.Validate(this);
+            return result.Errors.Select(item => new ValidationResult(item.ErrorMessage, new[] { item.PropertyName }));
+        }
     }
 }

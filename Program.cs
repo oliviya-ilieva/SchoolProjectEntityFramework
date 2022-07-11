@@ -1,4 +1,5 @@
-﻿using SchoolProjectEntityFramework.Data;
+﻿using SchoolProjectEntityFramework.AbstractValidator;
+using SchoolProjectEntityFramework.Data;
 using SchoolProjectEntityFramework.Models;
 using System;
 using System.Collections.Generic;
@@ -63,10 +64,21 @@ namespace SchoolProjectEntityFramework
 
             // Remove
 
-            var peter = context.Student.Find(2);
-            context.Student.Remove(peter);
+            /* var peter = context.Student.Find(2);
+             context.Student.Remove(peter);
 
-            context.SaveChanges();
+             context.SaveChanges();*/
+
+            var student = new Student
+            {
+                FirstName = "Mari@",
+                LastName = "Dimitrova",
+                SSN = "980765367",
+                ClassLetter = new ClassLetter { Letter = "A" },
+                ClassNumber = new ClassNum { ClassNumber = "11" }
+            };
+            context.Student.Add(student);
+            context.SaveChanges(); 
 
         }
     }

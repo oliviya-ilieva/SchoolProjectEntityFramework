@@ -32,6 +32,7 @@ namespace SchoolProjectEntityFramework.Data
 
         }
 
+       
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -46,6 +47,8 @@ namespace SchoolProjectEntityFramework.Data
             modelBuilder.Configurations.Add(new TeacherAddressConfiguration());
             modelBuilder.Configurations.Add(new TeacherEmailAddressConfiguration());
             modelBuilder.Configurations.Add(new TeacherPhoneConfiguration());
+            
+
         }
 
 
